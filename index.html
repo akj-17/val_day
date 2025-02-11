@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Love You Mere Jaan ❤️</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffb2e586;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Typing Message Section */
+    .hidden {
+      display: none;
+    }
+
+    .message-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #typing-text {
+      font-size: 60px;
+      color: #ff1900;
+    }
+
+    #love-button {
+      padding: 15px 30px;
+      font-size: 36px;
+      min-width: 300px;
+      height: 80px;
+      background-color: #ff1900;
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      cursor: pointer;
+      border: none;
+      color: white;
+    }
+
+    #love-button:hover {
+      background-color: #c0392b;
+    }
+
+    /* Password Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    #password-input {
+      padding: 10px;
+      font-size: 18px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    #submit-password {
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #ff1900;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    /* Floating Hearts Animation */
+    .heart {
+      position: fixed;
+      top: -10vh;
+      font-size: 72px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    /* Gallery Section */
+    .gallery {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .image-grid img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Happy Valentine's Day Message */
+    h2 {
+      font-size: 48px;
+      color: #000000;
+      margin-top: 10px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .button-container {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    #play-button {
+      padding: 15px 30px;
+      font-size: 36px;
+      min-width: 300px;
+      background-color: #4CAF50;
+      height: 80px;
+      display: flex;
+      border-radius: 100px;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+
+    #play-button:hover {
+      background-color: #45a049;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+      display: none;
+    }
+    /* Message Section */
+.love-message {
+  margin: 40px auto;
+  max-width: 800px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.1);
+  text-align: center;
+}
+
+.love-message h3 {
+  color: #ff1900;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.love-message p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.love-signature {
+  font-style: italic;
+  color: #ff1900;
+  font-size: 24px;
+  margin-top: 30px;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Animated "I Love You" Message -->
+    <div class="message-container">
+      <h1 id="typing-text"></h1>
+      <h2>Happy Valentine's Day</h2>
+      <div class="button-container">
+        <button id="love-button" class="hidden">Click here</button>
+      </div>
+    </div>
+    
+    <!-- Password Modal -->
+    <div id="password-modal" class="modal">
+      <div class="modal-content">
+        <h3>Enter Password</h3>
+        <input type="password" id="password-input" placeholder="Enter password">
+        <p id="error-message">Incorrect password. Please try again.</p>
+        <button id="submit-password">Submit</button>
+      </div>
+    </div>
+
+    <!-- Protected Content -->
+    <div id="protected-content" class="hidden">
+      <div class="button-container">
+        <button id="play-button">🎵 Play Song</button>
+      </div>
+      <div class="love-message">
+        <h3>To My Dearest</h3>
+        <p>From the moment you walked into my life, everything changed. Your smile brightens my darkest days, and your love gives me strength I never knew I had. Every moment spent with you feels like a beautiful dream I never want to wake up from.</p>
+        
+        <p>You're not just my girlfriend - you're my best friend, my confidante, my partner in crime, and my biggest supporter. The way you understand me, care for me, and love me unconditionally makes me fall deeper in love with you every single day.</p>
+        
+        <p>I want you to know that my heart beats only for you. You make every day feel special, and I'm incredibly lucky to have you in my life. Thank you for being you, for loving me, and for making my life complete.</p>
+        
+        <div class="love-signature">
+          Forever Yours,<br>
+          Kuttappan
+        </div>
+      </div>
+      <!-- Gallery of Pictures -->
+      <div class="gallery">
+        <h2>Our Best Moments</h2>
+        <div class="image-grid">
+          <img src="img1.jpg" alt="Our moment">
+          <img src="img2.jpg" alt="Our moment">
+          <img src="img3.jpg" alt="Our moment">
+          <img src="img4.jpg" alt="Our moment">
+          <img src="img5.jpg" alt="Our moment">
+          <img src="img6.jpg" alt="Our moment">
+          <img src="img7.jpg" alt="Our moment">
+          <img src="img8.jpg" alt="Our moment">
+          <img src="img9.jpg" alt="Our moment">
+          <img src="img10.jpg" alt="Our moment">
+          <img src="img11.jpg" alt="Our moment">
+          <img src="img12.jpg" alt="Our moment">
+          <img src="img13.jpg" alt="Our moment">
+          <img src="img14.jpg" alt="Our moment">
+          <img src="img15.jpg" alt="Our moment">
+          <img src="img16.jpg" alt="Our moment">
+          <img src="img17.jpg" alt="Our moment">
+          <img src="img18.jpg" alt="Our moment">
+          <img src="img19.jpg" alt="Our moment">
+          <img src="img20.jpg" alt="Our moment">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio-player" src="mvp.mp3"></audio>
+
+  <script>
+    // Typing Effect for "I Love You"
+    const text = "I Love You Mere Jaan ❤️";
+    const playButton = document.getElementById('play-button');
+    const audioPlayer = document.getElementById('audio-player');
+    const passwordModal = document.getElementById('password-modal');
+    const protectedContent = document.getElementById('protected-content');
+    const errorMessage = document.getElementById('error-message');
+
+    let index = 0;
+    const typingText = document.getElementById('typing-text');
+    const loveButton = document.getElementById('love-button');
+
+    function type() {
+      if (index < text.length) {
+        typingText.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 100);
+      } else {
+        loveButton.classList.remove('hidden');
+      }
+    }
+
+    type();
+
+    // Password Protection
+    loveButton.addEventListener('click', () => {
+      passwordModal.style.display = 'flex';
+      createHearts();
+    });
+
+    document.getElementById('submit-password').addEventListener('click', () => {
+      const password = document.getElementById('password-input').value;
+      if (password === '2910') {
+        passwordModal.style.display = 'none';
+        protectedContent.classList.remove('hidden');
+        errorMessage.style.display = 'none';
+      } else {
+        errorMessage.style.display = 'block';
+      }
+    });
+
+    // Floating Hearts Animation
+    function createHearts() {
+      const heartCount = 50; // Number of hearts
+      for (let i = 0; i < heartCount; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+        document.body.appendChild(heart);
+      }
+    }
+
+    // Add play button functionality
+    playButton.addEventListener('click', () => {
+      if (audioPlayer.paused) {
+        audioPlayer.play();
+        playButton.textContent = '⏸️ Pause Song';
+      } else {
+        audioPlayer.pause();
+        playButton.textContent = '🎵 Play Song';
+      }
+    });
+  </script>
+</body>
+</html>
